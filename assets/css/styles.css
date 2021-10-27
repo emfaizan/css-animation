@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../fonts/SofiaPro-Bold.woff2') format('woff2'),
+        url('../fonts/SofiaPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../fonts/SofiaProRegular.woff2') format('woff2'),
+        url('../fonts/SofiaProRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../fonts/SofiaPro-Medium.woff2') format('woff2'),
+        url('../fonts/SofiaPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../fonts/SofiaPro-Light.woff2') format('woff2'),
+        url('../fonts/SofiaPro-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+body {font-family:Sofia Pro;}
+
+img{width: 100%;}
+
+
+.horizontal-slider{max-width:90%;margin:10px auto;color:#fff;background: #007dba;background: -moz-linear-gradient(-45deg,  #007dba 0%, #004165 100%);background: -webkit-linear-gradient(-45deg,  #007dba 0%,#004165 100%);background: linear-gradient(135deg,  #007dba 0%,#004165 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007dba', endColorstr='#004165',GradientType=1 );padding: 85px 0;}
+.horizontal-slider .top-heading {margin:0 0 79px;}
+.horizontal-slider .top-heading h4{font-size: 14px;color:#fff;}
+.horizontal-slider .top-heading h2{font-size: 39px;color:#fff;position: relative; font-weight:bold;}
+.horizontal-slider .top-heading h2::after{content: "";display: block;height: 6px;width: 112px;background-color: #F5A623;position: absolute;left: 0;margin-top: 8px;}
+
+.horizontal-slider .item{margin:0 0 100px;opacity:0.5; cursor:pointer;}
+.horizontal-slider .item:hover{opacity:0.6;}
+.horizontal-slider .item h4{font-size: 28px;font-weight:bold;}
+.horizontal-slider .item p{font-size: 20px;line-height: 1.25; margin:0; font-weight:300;}
+
+.horizontal-slider .preview {position:relative;height: 100%;}
+.horizontal-slider .preview .picture {position:absolute;width:360px;top:50%; left:50%;transform:translate(-50%, -50%); -webkit-transform:translate(-50%, -50%);}
+.horizontal-slider .preview .steps-circle {position:absolute;top:50%; left:50%;transform:translate(-50%, -50%); -webkit-transform:translate(-50%, -50%);}
+
+.horizontal-slider .bottom-dots{display: flex;justify-content: center;margin-top: 30px;}
+.horizontal-slider .bottom-dots span{opacity:0.5;height: 10px;width: 10px;border-radius: 50%;background-color: #fff;display: inline-block;margin-right: 10px;cursor: pointer;}
+
+.first-slide .item.one, .second-slide .item.two, .third-slide .item.three, .four-slide .item.four,
+.first-slide .bottom-dots span:nth-child(1), .second-slide .bottom-dots span:nth-child(2), .third-slide .bottom-dots span:nth-child(3), .four-slide .bottom-dots span:nth-child(1)  {opacity:1;}
+
+
+/*   MEDIA QUERIES   */
+
+@media(max-width:576px){
+
+    .horizontal-slider .top-heading h4 {font-size: 10px;}
+    .horizontal-slider .top-heading h2 {font-size: 26px;}
+
+    .horizontal-slider .slider-grid-row h4 {font-size: 22px;}
+    .horizontal-slider .slider-grid-row p {font-size: 14px;width: 70%;}
+    .horizontal-slider .slider-grid-row .detail{padding-left: 20px;}
+}
+
+
