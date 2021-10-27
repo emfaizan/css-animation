@@ -25,6 +25,7 @@ $(document).ready(function() {
 		
 
 	that.drawArc = function(startAngle, percentFilled, color){
+		console.log("f", percentFilled);
 		var drawingArc = true;
 		canvas.beginPath();
 		canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), reverse);
@@ -78,29 +79,29 @@ $(document).ready(function() {
 				break;
 		}
 
-		if(that.angle >= 1 || that.angle > val){that.angle = val - 0.25;}
+		if(that.angle >= 1 || that.angle > val){that.angle = val;}
 		that.fillChart(val);
 	}
 
-	$(document).on('click', '.item.one', function(){
+	$(document).on('click', '.item-one', function(){
 		if(wrapper.attr("slide") != "1"){
 			slideTo(1);
 		}
 	});
 
-	$(document).on('click', '.item.two', function(){
+	$(document).on('click', '.item-two', function(){
 		if(wrapper.attr("slide") != "2"){
 			slideTo(2);
 		}
 	});
 
-	$(document).on('click', '.item.three', function(){
+	$(document).on('click', '.item-three', function(){
 		if(wrapper.attr("slide") != "3"){
 			slideTo(3);
 		}
 	});
 
-	$(document).on('click', '.item.four', function(){
+	$(document).on('click', '.item-four', function(){
 		if(wrapper.attr("slide") != "4"){
 			slideTo(4);
 		}
@@ -120,20 +121,20 @@ $(document).ready(function() {
 	$('.horizontal-slider').mouseleave(function(){ MOUSE_OVER=false; });
 	
 	$('.horizontal-slider').bind('mousewheel', function(e){
-	var delta = e.originalEvent.deltaY ;
-	var slide = Number(wrapper.attr('slide')) 
-	if(delta < 0){
-		//go up
-		if(slide > 1){
-			slideTo(slide-1);
+		var delta = e.originalEvent.deltaY ;
+		var slide = Number(wrapper.attr('slide')) 
+		if(delta < 0){
+			//go up
+			if(slide > 1){
+				slideTo(slide-1);
+			}
 		}
-	}
-	else{
-		//go down
-		if(slide <= 3){
-			slideTo(slide+1);
+		else{
+			//go down
+			if(slide <= 3){
+				slideTo(slide+1);
+			}
 		}
-	}
 	});
 
 });
