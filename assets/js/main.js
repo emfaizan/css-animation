@@ -35,23 +35,35 @@ $(document).ready(function() {
 		drawingArc = false;
 	}
 
-	that.fillChart = function(stop){
+	that.fillChart = function(stop, backward){
 		var loop = setInterval(function(){
 			hoverPolice = true;
 			canvas.clearRect(0, 0, canvasWidth, canvasHeight);
 
 			that.drawArc(0, 360, "#2776a1");
-			that.angle += update;
-			that.drawArc(0, that.angle, "#95D229");
+			if(!backward){
+				that.angle += update;
+				that.drawArc(0, that.angle, "#95D229");
 
-			if(that.angle > stop){
-				clearInterval(loop);
-				hoverPolice = false;
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			} else {
+				that.angle -= update;
+				that.drawArc(0, that.angle, "#95D229");
+
+				if(that.angle < stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
 			}
+
+			
 		}, fps);
 	}
 
-	that.fillChart(0.25);
+	that.fillChart(0.25, 0);
 	that.append(canvasElement);
 	
 
@@ -79,8 +91,14 @@ $(document).ready(function() {
 				break;
 		}
 
-		if(that.angle >= 1 || that.angle > val){that.angle = val;}
-		that.fillChart(val);
+		if(that.angle >= 1 || that.angle > val){
+			//that.angle = val;
+			that.fillChart(val, 1);
+		}
+		else {
+			that.fillChart(val, 0);
+		}
+		
 	}
 
 	$(document).on('click', '.item-one', function(){
